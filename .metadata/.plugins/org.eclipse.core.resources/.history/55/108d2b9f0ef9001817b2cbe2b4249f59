@@ -1,0 +1,26 @@
+package in.tp.swdd;
+
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import in.tp.swdd.service.IEmployeeService;
+
+@RunWith(SpringRunner.class)
+@Mvc
+public class IEmployeeAPIUnitTest {
+	
+	@MockBean
+	private IEmployeeService empService;
+	
+	@Autowired
+	private MockMVC mockMVC;
+	
+	@Test
+	public void whenGetAllEmployeesRequested_returnJSONArray() throws Exception{
+		
+	}
+	
+
+}

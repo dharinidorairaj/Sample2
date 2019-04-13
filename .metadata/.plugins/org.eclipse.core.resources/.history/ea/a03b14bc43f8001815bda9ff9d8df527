@@ -1,0 +1,8 @@
+package in.tp.swdd;
+
+public class IEmployeeRepoIntegrationTest {
+
+	@AutoWired
+		private TestEntityManager entityManager;
+		
+}

@@ -1,0 +1,28 @@
+package in.tp.swdd;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+
+import in.tp.swdd.dao.IEmployeeRepo;
+import in.tp.swdd.model.Employee;
+
+public class IEmployeeRepoIntegrationTest {
+
+	@Autowired
+		private TestEntityManager entityManager;
+	
+	@Autowired
+	private IEmployeeRepo empRepo;
+	
+	@Test
+	private void whenFindAllByEmpName_returnMatchingEmployeeObjects() {
+		//initial setup
+		
+		Employee[] emps = new Employee[] {
+				new Employee("Ravi Kumar", "abd.cognizant.com");
+		};
+		
+	}
+		
+}

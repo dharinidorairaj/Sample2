@@ -1,0 +1,30 @@
+package in.tp.swdd;
+	
+import static org.assertj.core.api.Assertions.assertThat;
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import in.tp.swdd.dao.IEmployeeRepo;
+import in.tp.swdd.model.Employee;
+
+@RunWith(SpringRunner.class)
+@DataJpaTest@AutoConfigureTestDatabase
+public class IEmployeeRepoIntegrationTest {
+
+	@Autowired
+		private TestEntityManager entityManager;
+	
+	@Autowired
+	private IEmployeeRepo empRepo;
+	
+	for (Employee e : emps)			entityManager.persist(e);	}
+	@Test	public void whenFindByMailId_returnMathcingEmployee() {		
+		Employee actual = empRepo.findByMailId(emps[2].getMailId());		Employee expected = emps[2];		assertThat(actual).isEqualTo(expected);	}}

@@ -1,0 +1,24 @@
+package in.tp.swdd;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+
+import in.tp.swdd.dao.IEmployeeRepo;
+
+public class IEmployeeRepoIntegrationTest {
+
+	@Autowired
+		private TestEntityManager entityManager;
+	
+	@Autowired
+	private IEmployeeRepo empRepo;
+	
+	@Test
+	private void whenFindAllByEmpName_returnMatchingEmployeeObjects() {
+		//initial setup
+		
+		Employee[] emps = new employee[];
+		
+	}
+		
+}

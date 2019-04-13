@@ -1,0 +1,91 @@
+package in.tp.swdd.model;
+
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
+@Entity
+@Table(name="spring_employees")
+public class Employee {
+
+	public Employee(String name, String mailId) {
+		setEmpName(name);
+	}
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long empNo;
+	
+	@NotEmpty(message="Name is not expected to be blank")
+	@Size(min=5,max=25,message="Name is expected to 5 to 15 chars in length")
+	private String empName;
+	
+	@DateTimeFormat(iso=ISO.DATE)
+	@Past(message="Can not in a future date.")
+	private LocalDate dateOfJoin;
+	
+	@NotNull(message="Basic can not be empty")
+	@Min(value=12000,message="Basic can not be less than 12000")
+	@Max(value=45000,message="Basic cna not be more than 25000")
+	private Double basic;
+	
+	@NotNull(message="Mail Id is manditory")
+	@Email(message="Invalid Mail Id")
+	private String mailId;
+
+	public long getEmpNo() {
+		return empNo;
+	}
+
+	public void setEmpNo(long empNo) {
+		this.empNo = empNo;
+	}
+
+	public String getEmpName() {
+		return empName;
+	}
+
+	public void setEmpName(String empName) {
+		this.empName = empName;
+	}
+
+	public LocalDate getDateOfJoin() {
+		return dateOfJoin;
+	}
+
+	public void setDateOfJoin(LocalDate dateOfJoin) {
+		this.dateOfJoin = dateOfJoin;
+	}
+
+	public Double getBasic() {
+		return basic;
+	}
+
+	public void setBasic(Double basic) {
+		this.basic = basic;
+	}
+
+	public String getMailId() {
+		return mailId;
+	}
+
+	public void setMailId(String mailId) {
+		this.mailId = mailId;
+	}
+	
+	
+}
