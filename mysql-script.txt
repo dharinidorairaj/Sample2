@@ -1,0 +1,27 @@
+
+
+CREATE DATABASE TASKMANAGER;
+
+
+CREATE TABLE tasks (
+	task_id BIGINT(10) NOT NULL AUTO_INCREMENT,
+	task_name VARCHAR(50) NULL DEFAULT NULL,
+	parent_task_id BIGINT(10) NULL DEFAULT NULL,
+	start_date VARCHAR(10) NULL DEFAULT NULL,
+	end_date VARCHAR(10) NULL DEFAULT NULL,
+	priority VARCHAR(2) NULL DEFAULT NULL,
+	status VARCHAR(1) NULL DEFAULT NULL,
+	PRIMARY KEY (task_id),
+	CONSTRAINT FK_TASKS FOREIGN KEY (parent_task_id) REFERENCES tasks (task_id)
+);
+
+
+
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('Task Generation',null,'07/01/2018','10/10/2018','15','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('complete the go perform',null,'10/01/2018','12/10/2018','3','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('sent email',null,'1/10/2018','16/9/2018','1','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('complete task assigned',null,'1/10/2018','2/10/2018','0','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('unit testing',null,'09/10/2018','09/10/2018','2','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('fill the document',null,'1/10/2018','2/10/2018','7','A');
+
+select * from tasks;
